@@ -108,16 +108,3 @@ export default function GuestDateSelectionCard() {
         </Card>
     )
 }
-
-interface RowProps {
-    occasion: Occasion
-}
-
-function DateRow(props: RowProps) {
-    const { occasion } = props
-    return (
-        <TableRow key={occasion.name}>
-
-        </TableRow>
-    )
-}
