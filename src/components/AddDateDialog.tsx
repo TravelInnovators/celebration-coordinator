@@ -12,9 +12,9 @@ interface Props {
 
 export default function AddDateDialog(props: Props) {
     const { open, onClose } = props
-    const [occasion, setOccasion] = useState("Mother's Day")
+    const [occasion, setOccasion] = useState("Special Occasion")
     const [date, setDate] = useState(new Date())
-    const [location, setLocation] = useState("Boston")
+    const [location, setLocation] = useState("Location")
 
     const onCreate = async () => {
         await Service.createOccasion(occasion, date, location)

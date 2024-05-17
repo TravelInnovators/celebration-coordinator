@@ -8,7 +8,6 @@ import AddDateDialog from "./AddDateDialog";
 import AddGuestDialog from "./AddGuestDialog";
 
 export default function GuestDateSelectionCard() {
-    const { guestId } = useParams<{ guestId?: string }>()
     const [openOccasionDialog, setOpenOccasionDialog] = useState(false)
     const [openGuestDialog, setOpenGuestDialog] = useState(false)
     const [occasions, setOccacions] = useState([])
@@ -33,6 +32,7 @@ export default function GuestDateSelectionCard() {
     return (
         <Card>
             <CardHeader title='Guest Dates' style={{ textAlign: 'center' }} />
+
             <CardContent>
                 <TableContainer component={Paper}>
                     <Table>
@@ -54,7 +54,6 @@ export default function GuestDateSelectionCard() {
                                     Special Date</Button>
                                 {openOccasionDialog && <AddDateDialog open={openOccasionDialog} onClose={(): void => setOpenOccasionDialog(false)} />}
                             </TableRow>
-                            
                         </TableFooter>
                     </Table>
                 </TableContainer>
@@ -62,23 +61,24 @@ export default function GuestDateSelectionCard() {
                     <Table>
                         <TableHead>
                             <TableRow key={'Header'}>
-                                <TableCell style={{ textAlign: 'center' }}>
+                                <TableCell style={{ textAlign: 'center' }} colSpan={3}>
                                     <Typography>{'Special Guests'}</Typography>
                                 </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {guest?.dates!.map((ocassion: Occasion) => (
-                                <DateRow occasion={ocassion} />
-                            ))}
+                            <TableRow>
+                                <TableCell>{"Greg"}</TableCell>
+                                <TableCell>{"Willy"}</TableCell>
+                                <TableCell>{"travelinnovators.gmail.com"}</TableCell>
+                            </TableRow>
                         </TableBody>
                         <TableFooter>
                             <TableRow>
                                 <Button variant='contained' onClick={addGuestRow} startIcon={<AddIcon />}>Add
                                     Special Guests</Button>
-                                {openGuestDialog && <AddGuestDialog open={openGuestDialog} onClose={(): void => setOpenGuestDialog(false)} />}
                             </TableRow>
-                            
+                            {openGuestDialog && <AddGuestDialog open={openGuestDialog} onClose={(): void => setOpenGuestDialog(false)} />}
                         </TableFooter>
                     </Table>
                 </TableContainer>
