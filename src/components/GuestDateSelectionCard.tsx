@@ -2,7 +2,7 @@ import { Button, Card, CardContent, CardHeader, Paper, Table, TableBody, TableCe
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Service from "../services/Service";
-import Guest, { Occasion } from "../model/Guest";
+import { Occasion } from "../model/Guest";
 import AddIcon from '@mui/icons-material/Add';
 import AddDateDialog from "./AddDateDialog";
 import AddGuestDialog from "./AddGuestDialog";
@@ -11,8 +11,17 @@ export default function GuestDateSelectionCard() {
     const { guestId } = useParams<{ guestId?: string }>()
     const [openOccasionDialog, setOpenOccasionDialog] = useState(false)
     const [openGuestDialog, setOpenGuestDialog] = useState(false)
-    const guest = {} as Guest
-    guest.dates = [] as Occasion[]
+    const [occasions, setOccacions] = useState([])
+
+    useEffect(() => {
+        (async (): Promise<void> => {
+            const list = await Service.getOcassion()
+            if (!list) {
+                return
+            }
+            setOccacions(list)
+        })()
+    }, [])
 
     const addOccasionRow = () => {
         setOpenOccasionDialog(true)
@@ -35,7 +44,7 @@ export default function GuestDateSelectionCard() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {guest?.dates!.map((ocassion: Occasion) => (
+                            {occasions!.map((ocassion: Occasion) => (
                                 <DateRow occasion={ocassion} />
                             ))}
                         </TableBody>

@@ -22,11 +22,7 @@ export default class Service {
         )).data
     }
 
-    static async getGuest(): Promise<Guest> {
-        return await (await axiosInstance.get('Member')).data
-    }
-
-    static async getOcassion(): Promise<Occasion> {
+    static async getOcassion(): Promise<any> {
         return await (await axiosInstance.get('Member_Occasion')).data
     }
 }
