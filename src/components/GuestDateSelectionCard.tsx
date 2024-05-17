@@ -54,10 +54,10 @@ export default function GuestDateSelectionCard() {
                                 </TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>"Name"</TableCell>
-                                <TableCell>"Date"</TableCell>
-                                <TableCell>"Location"</TableCell>
-                                <TableCell>"View Products"</TableCell>
+                                <TableCell>Name</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Location</TableCell>
+                                <TableCell>View Products</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
