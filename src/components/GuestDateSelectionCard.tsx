@@ -9,7 +9,8 @@ import AddDateDialog from "./AddDateDialog";
 export default function GuestDateSelectionCard() {
     const { guestId } = useParams<{ guestId?: string }>()
     const [openDialog, setOpenDialog] = useState(false)
-    const guest = {}
+    const guest = {} as Guest
+    guest.dates = [] as Occasion[]
 
     const addRow = () => {
         setOpenDialog(true)
