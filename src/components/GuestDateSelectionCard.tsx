@@ -6,32 +6,10 @@ import Guest, { Occasion } from "../model/Guest";
 import AddIcon from '@mui/icons-material/Add';
 import AddDateDialog from "./AddDateDialog";
 
-export function useGuestInfo(guestId: string) {
-    const [guest, setGuest] = useState<Guest>();
-
-    useEffect(() => {
-        if (!guestId) {
-            return
-        }
-        (async (): Promise<void> => {
-            try {
-                const response = await Service.getGuest(guestId)
-        if (!response) {
-            return
-        }
-        setGuest(response)
-            } catch (err) {
-                console.log(err)
-            }
-        })()
-    }, [guestId, setGuest])
-    return guest
-}
-
 export default function GuestDateSelectionCard() {
     const { guestId } = useParams<{ guestId?: string }>()
     const [openDialog, setOpenDialog] = useState(false)
-    const guest = useGuestInfo(guestId!)!
+    const guest = {}
 
     const addRow = () => {
         setOpenDialog(true)
