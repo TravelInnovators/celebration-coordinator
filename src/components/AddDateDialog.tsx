@@ -25,7 +25,7 @@ export default function AddDateDialog(props: Props) {
         <Dialog open={open} onClose={onClose}>
             <DialogTitle />
             <DialogContent>
-                <InlineTextField defaultValue={"Mother's Day"} onCommit={(value: string): void => {
+                <InlineTextField defaultValue={occasion} onCommit={(value: string): void => {
                     setOccasion(value)
                 }} />
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -34,7 +34,7 @@ export default function AddDateDialog(props: Props) {
                     onChange={(newValue: any) => setDate(new Date(newValue))}
                     />
                 </LocalizationProvider>
-                <InlineTextField defaultValue={"Boston"} onCommit={(value: string): void => {
+                <InlineTextField defaultValue={location} onCommit={(value: string): void => {
                     setLocation(value)
                 }} />
                 

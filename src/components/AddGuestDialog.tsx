@@ -23,13 +23,13 @@ export default function AddGuestDialog(props: Props) {
         <Dialog open={open} onClose={onClose}>
             <DialogTitle />
             <DialogContent>
-                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                <InlineTextField defaultValue={"First Name"} onCommit={(value: string): void => {
                     setFirstName(value)
                 }} />
-                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                <InlineTextField defaultValue={"Last Name"} onCommit={(value: string): void => {
                     setLastName(value)
                 }} />
-                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                <InlineTextField defaultValue={"Email"} onCommit={(value: string): void => {
                     setEmail(value)
                 }} />
                 
