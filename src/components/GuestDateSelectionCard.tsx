@@ -63,7 +63,7 @@ export default function GuestDateSelectionCard() {
                         <TableBody>
                             {occasions.map((occasion: Occasion) => (
                                 <TableRow>
-                                    <TableCell>{occasion.name}</TableCell>
+                                    <TableCell>{occasion.occasion}</TableCell>
                                     <TableCell>{String(occasion.date)}</TableCell>
                                     <TableCell>{occasion.location}</TableCell>
                                     <ActionCell path={"/product"} />
