@@ -10,7 +10,7 @@ import AddGuestDialog from "./AddGuestDialog";
 export default function GuestDateSelectionCard() {
     const [openOccasionDialog, setOpenOccasionDialog] = useState(false)
     const [openGuestDialog, setOpenGuestDialog] = useState(false)
-    const [occasions, setOccacions] = useState([])
+    const [occasions, setOccacions] = useState([] as Occasion[])
 
     useEffect(() => {
         (async (): Promise<void> => {
@@ -29,10 +29,19 @@ export default function GuestDateSelectionCard() {
         setOpenGuestDialog(true)
     }
 
+    const renderRows = () => {
+        occasions.forEach((occasion: Occasion) => {
+            <TableRow>
+                <TableCell>{occasion.name}</TableCell>
+                <TableCell>{String(occasion.date)}</TableCell>
+                <TableCell>{occasion.location}</TableCell>
+            </TableRow>
+        })
+    }
+
     return (
         <Card>
             <CardHeader title='Guest Dates' style={{ textAlign: 'center' }} />
-
             <CardContent>
                 <TableContainer component={Paper}>
                     <Table>

@@ -14,4 +14,7 @@ export enum Status {
 
 export interface Occasion {
     name: string
+    location: string
+    date: Date
+    id: string
 }
