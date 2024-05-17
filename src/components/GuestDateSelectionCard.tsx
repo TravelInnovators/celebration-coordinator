@@ -6,6 +6,7 @@ import { Occasion } from "../model/Guest";
 import AddIcon from '@mui/icons-material/Add';
 import AddDateDialog from "./AddDateDialog";
 import AddGuestDialog from "./AddGuestDialog";
+import ActionCell from "./common/ActionCell";
 
 export default function GuestDateSelectionCard() {
     const [openOccasionDialog, setOpenOccasionDialog] = useState(false)
@@ -35,6 +36,7 @@ export default function GuestDateSelectionCard() {
                 <TableCell>{occasion.name}</TableCell>
                 <TableCell>{String(occasion.date)}</TableCell>
                 <TableCell>{occasion.location}</TableCell>
+                <ActionCell path={"/product"} />
             </TableRow>
         })
     }
@@ -51,10 +53,21 @@ export default function GuestDateSelectionCard() {
                                     <Typography>{'Special Dates'}</Typography>
                                 </TableCell>
                             </TableRow>
+                            <TableRow>
+                                <TableCell>"Name"</TableCell>
+                                <TableCell>"Date"</TableCell>
+                                <TableCell>"Location"</TableCell>
+                                <TableCell>"View Products"</TableCell>
+                            </TableRow>
                         </TableHead>
                         <TableBody>
-                            {occasions!.map((ocassion: Occasion) => (
-                                <DateRow occasion={ocassion} />
+                            {occasions.map((occasion: Occasion) => (
+                                <TableRow>
+                                    <TableCell>{occasion.name}</TableCell>
+                                    <TableCell>{String(occasion.date)}</TableCell>
+                                    <TableCell>{occasion.location}</TableCell>
+                                    <ActionCell path={"/product"} />
+                                </TableRow>
                             ))}
                         </TableBody>
                         <TableFooter>

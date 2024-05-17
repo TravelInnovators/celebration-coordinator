@@ -22,7 +22,7 @@ export default class Service {
         )).data
     }
 
-    static async getOcassion(): Promise<Occasion> {
+    static async getOcassion(): Promise<Occasion[]> {
         return await (await axiosInstance.get('Member_Occasion')).data
     }
 }
