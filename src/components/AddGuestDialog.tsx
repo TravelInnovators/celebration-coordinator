@@ -11,14 +11,14 @@ interface Props {
     onClose: () => void
 }
 
-export default function AddDateDialog(props: Props) {
+export default function AddGuestDialog(props: Props) {
     const { open, onClose } = props
-    const [occasion, setOccasion] = useState("Mother's Day")
-    const [date, setDate] = useState(new Date())
-    const [location, setLocation] = useState("Boston")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
 
     const onCreate = async () => {
-        await Service.createOccasion(occasion, date, location)
+        await Service.createGuest(firstName, lastName, email)
         onClose()
     }
 
@@ -26,17 +26,14 @@ export default function AddDateDialog(props: Props) {
         <Dialog open={open} onClose={onClose}>
             <DialogTitle />
             <DialogContent>
-                <InlineTextField defaultValue={"Mother's Day"} onCommit={(value: string): void => {
-                    setOccasion(value)
+                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                    setFirstName(value)
                 }} />
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                    label="Date"
-                    onChange={(newValue: any) => setDate(new Date(newValue))}
-                    />
-                </LocalizationProvider>
-                <InlineTextField defaultValue={"Boston"} onCommit={(value: string): void => {
-                    setLocation(value)
+                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                    setLastName(value)
+                }} />
+                <InlineTextField defaultValue={""} onCommit={(value: string): void => {
+                    setEmail(value)
                 }} />
                 
             </DialogContent>

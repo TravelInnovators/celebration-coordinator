@@ -2,12 +2,32 @@ import axios from "axios";
 import Guest, { Occasion } from "../model/Guest";
 
 export default class Service {
-    static async createGuest(): Promise<Guest> {
-        return await (await axios.post('Member')).data
+    static async createGuest(first_name: string, last_name: string, email: string): Promise<any> {
+        return await (await axiosInstance.post('Member',
+            {
+                "first_name": first_name,
+                "last_name": last_name,
+                "email": email
+            }    
+        )).data
     }
 
-    static async createOcassion(): Promise<Occasion> {
-        return await (await axios.post('Member_Occasion')).data
+    static async createOccasion(occasion: string, date: Date, location: string): Promise<any> {
+        return await (await axiosInstance.post('Member_Occasion', 
+            {
+                "occasion": occasion,
+                "date": date,
+                "location": location
+            }
+        )).data
+    }
+
+    static async getGuest(): Promise<Guest> {
+        return await (await axiosInstance.get('Member')).data
+    }
+
+    static async getOcassion(): Promise<Occasion> {
+        return await (await axiosInstance.get('Member_Occasion')).data
     }
 }
 

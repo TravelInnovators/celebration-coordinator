@@ -5,15 +5,20 @@ import Service from "../services/Service";
 import Guest, { Occasion } from "../model/Guest";
 import AddIcon from '@mui/icons-material/Add';
 import AddDateDialog from "./AddDateDialog";
+import AddGuestDialog from "./AddGuestDialog";
 
 export default function GuestDateSelectionCard() {
     const { guestId } = useParams<{ guestId?: string }>()
-    const [openDialog, setOpenDialog] = useState(false)
+    const [openOccasionDialog, setOpenOccasionDialog] = useState(false)
+    const [openGuestDialog, setOpenGuestDialog] = useState(false)
     const guest = {} as Guest
     guest.dates = [] as Occasion[]
 
-    const addRow = () => {
-        setOpenDialog(true)
+    const addOccasionRow = () => {
+        setOpenOccasionDialog(true)
+    }
+    const addGuestRow = () => {
+        setOpenGuestDialog(true)
     }
 
     return (
@@ -36,10 +41,35 @@ export default function GuestDateSelectionCard() {
                         </TableBody>
                         <TableFooter>
                             <TableRow>
-                                <Button variant='contained' onClick={addRow} startIcon={<AddIcon />}>Add
+                                <Button variant='contained' onClick={addOccasionRow} startIcon={<AddIcon />}>Add
                                     Special Date</Button>
-                                {openDialog && <AddDateDialog open={openDialog} onClose={(): void => setOpenDialog(false)} />}
+                                {openOccasionDialog && <AddDateDialog open={openOccasionDialog} onClose={(): void => setOpenOccasionDialog(false)} />}
                             </TableRow>
+                            
+                        </TableFooter>
+                    </Table>
+                </TableContainer>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow key={'Header'}>
+                                <TableCell style={{ textAlign: 'center' }}>
+                                    <Typography>{'Special Guests'}</Typography>
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {guest?.dates!.map((ocassion: Occasion) => (
+                                <DateRow occasion={ocassion} />
+                            ))}
+                        </TableBody>
+                        <TableFooter>
+                            <TableRow>
+                                <Button variant='contained' onClick={addGuestRow} startIcon={<AddIcon />}>Add
+                                    Special Guests</Button>
+                                {openGuestDialog && <AddGuestDialog open={openGuestDialog} onClose={(): void => setOpenGuestDialog(false)} />}
+                            </TableRow>
+                            
                         </TableFooter>
                     </Table>
                 </TableContainer>
