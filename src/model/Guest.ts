@@ -13,7 +13,7 @@ export enum Status {
 }
 
 export interface Occasion {
-    name: string
+    occasion: string
     location: string
     date: Date
     id: string

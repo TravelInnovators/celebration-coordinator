@@ -33,7 +33,7 @@ export default function GuestDateSelectionCard() {
     const renderRows = () => {
         occasions.forEach((occasion: Occasion) => {
             <TableRow>
-                <TableCell>{occasion.name}</TableCell>
+                <TableCell>{occasion.occasion}</TableCell>
                 <TableCell>{String(occasion.date)}</TableCell>
                 <TableCell>{occasion.location}</TableCell>
                 <ActionCell path={"/product"} />
