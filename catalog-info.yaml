@@ -4,6 +4,7 @@ metadata:
   name: celebration-coordinator
   annotations:
     github.com/project-slug: TravelInnovators/celebration-coordinator
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: openapi
   lifecycle: unknown
