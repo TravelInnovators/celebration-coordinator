@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: celebration-coordinator
+  description: Backstage Entities for celebration-coordinator
+spec:
+  targets:
+    - ./apis.yaml
+    - ./components.yaml
