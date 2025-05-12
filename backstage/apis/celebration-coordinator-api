@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: celebration-coordinator
+  description: Celebration Coordinator
+  links:
+    - url: https://example.com/web
+      title: Website
+      icon: web
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
