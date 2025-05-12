@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: celebration-coordinator
+  annotations:
+    github.com/project-slug: TravelInnovators/celebration-coordinator
+spec:
+  type: other
+  lifecycle: unknown
+  owner: guests
